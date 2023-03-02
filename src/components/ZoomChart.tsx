@@ -8,7 +8,7 @@ import {
   Tooltip,
   ReferenceArea
 } from "recharts";
-
+import CustomTooltip from "./CustomTooltip";
 
 
 
@@ -158,12 +158,14 @@ export default class App extends Component<any, any> {
             dataKey="index"
             domain={[left, right]}
             type="number"
+            tickFormatter={(value: any, index: number) => formatXAxis(value, data)}
           />
           <YAxis
             allowDataOverflow
             domain={[bottom, top]}
             type="number"
             yAxisId="1"
+            tickFormatter={formatYAxis}
           />
           <YAxis
             orientation="right"
@@ -172,13 +174,14 @@ export default class App extends Component<any, any> {
             type="number"
             yAxisId="2"
           />
-          <Tooltip />
+          <Tooltip content={<CustomTooltip />} />
           <Line
             yAxisId="1"
             type="natural"
             dataKey="price"
             stroke="#8884d8"
             animationDuration={300}
+            dot={false}
           />
 
           {refAreaLeft && refAreaRight ? (
@@ -192,5 +195,18 @@ export default class App extends Component<any, any> {
         </LineChart>
       </div>
     );
+  }
+}
+
+function formatYAxis(value: number, index: number): string {
+  return `$${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+}
+
+function formatXAxis(value: any, data: any): string {
+  try{
+    return data[value].year;
+  }
+  catch (e) {
+    return '';
   }
 }

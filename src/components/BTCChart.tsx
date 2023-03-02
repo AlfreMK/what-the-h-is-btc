@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { LineChart, Line, XAxis, YAxis, Tooltip, Brush } from "recharts";
+import { useEffect, useState } from "react";
 import { getDataFromBegginingOfTime } from "../utils/functions";
-import CustomTooltip from "./CustomTooltip";
 import ZoomChart from "./ZoomChart"; 
 
 
