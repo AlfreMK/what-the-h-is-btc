@@ -32,6 +32,15 @@ function formatMoney(value: number): string {
     return `$${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
 }
 
+
+function formatDate(value: string): string {
+    const date = new Date(value);
+    // format 25 May, 2021
+    const dateMonth = date.toLocaleString('en-US', {month: 'short'});
+    return `${date.getDate()} ${dateMonth.charAt(0).toUpperCase() + dateMonth.slice(1)}, ${date.getFullYear()}`;
+}
+
+
 async function getDataFromBegginingOfTime(): Promise<IPriceData[]> {
     // powered by coingecko
     const url = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=max&interval=weekly`;
@@ -66,4 +75,5 @@ export {
     getDataFromBegginingOfTime,
     getPrice,
     formatMoney,
+    formatDate,
 };

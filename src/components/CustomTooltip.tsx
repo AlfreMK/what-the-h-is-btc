@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { formatMoney } from "../utils/functions";
+import { formatMoney, formatDate } from "../utils/functions";
 
 interface ICustomTooltipProps {
     active?: boolean;
@@ -29,13 +29,6 @@ const CustomTooltip = ({ active, payload, label }: ICustomTooltipProps) => {
 
 export default CustomTooltip;
 
-
-  
-function formatDate(value: string): string {
-    const date = new Date(value);
-    // formar 25 May, 2021
-    return `${date.getDate()} ${date.toLocaleString('default', { month: 'short' })}, ${date.getFullYear()}`;
-}
 
 const Container = styled.div`
     display: flex;

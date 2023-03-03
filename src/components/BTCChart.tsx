@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getDataFromBegginingOfTime } from "../utils/functions";
 import ZoomChart from "./ZoomChart";
 import styled from "styled-components";
-import { formatMoney } from "../utils/functions";
+import { formatMoney, formatDate } from "../utils/functions";
 
 
 interface IPriceData {
@@ -13,20 +13,24 @@ interface IPriceData {
 }
 
 interface IPrices {
-  first: number;
-  last: number;
+  firstPriceData: IPriceData;
+  lastPriceData: IPriceData;
 }
 
 const BTCChart = () => {
+  const defaultPriceData = { index: 0, year: 0, date: "", price: 0 };
   const [priceData, setPriceData] = useState<IPriceData[]>([]);
-  const [prices, setPrices] = useState<IPrices>({ first: 0, last: 0 });
+  const [prices, setPrices] = useState<IPrices>({
+    firstPriceData: defaultPriceData,
+    lastPriceData: defaultPriceData,
+  });
 
   useEffect(() => {
     getDataFromBegginingOfTime().then((data) => {
       setPriceData(data);
       setPrices({
-        first: data[0].price,
-        last: data[data.length - 1].price,
+        firstPriceData: data[0],
+        lastPriceData: data[data.length - 1],
       });
     });
   }, []);
@@ -37,16 +41,25 @@ const BTCChart = () => {
         <p>Click and drag on the chart to zoom in</p>
         <ZoomChart initialData={priceData} />
       </ContainerChart>
-      <span>BTC has grow from {formatMoney(prices.first)} to {formatMoney(prices.last)} USD</span>
-      <span>That's a {formatPercentage(increase(prices))}% increase</span>
-      <span>Equivalent to a XX anual increase</span>
-      <span>Equivalent to a XX monthly increase</span>
+      <span>
+        BTC has grow from {formatMoney(prices.firstPriceData.price)} to {formatMoney(prices.lastPriceData.price)} USD
+        since {formatDate(prices.firstPriceData.date)} to {formatDate(prices.lastPriceData.date)}
+      </span>
+      <span>
+        That's a {formatPercentage(increase(prices))}% increase
+      </span>
+      <span>
+        Equivalent to a XX anual increase
+      </span>
+      <span>
+        Equivalent to a XX monthly increase
+      </span>
     </Container>
   );
 };
 
 function increase(prices: IPrices) {
-  return ((prices.last - prices.first) / prices.first) * 100;
+  return ((prices.lastPriceData.price - prices.firstPriceData.price) / prices.firstPriceData.price) * 100;
 }
 
 function formatPercentage(number: number) {
