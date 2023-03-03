@@ -5,7 +5,7 @@ import BTCChart from './components/BTCChart';
 import Gecko from './components/Gecko';
 import BTCLogo from './components/BTCLogo';
 import Price from './components/Price';
-
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -17,6 +17,7 @@ function App() {
       <Price />
       <BTCChart />
       <Gecko />
+      <Footer />
 
       
     </Container>

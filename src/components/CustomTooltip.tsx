@@ -53,7 +53,7 @@ const DateCont = styled.div`
     text-align: center;
     color: #fff;
     font-size: 0.9rem;
-    background-color: #2563eb;
+    background-color: #4f46e5;
     padding: 5px 0;
 `;
 
