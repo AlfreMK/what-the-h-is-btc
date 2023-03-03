@@ -42,17 +42,19 @@ const BTCChart = () => {
         <ZoomChart initialData={priceData} />
       </ContainerChart>
       <span>
+        Since {formatDate(prices.firstPriceData.date)} to {formatDate(prices.lastPriceData.date)}
+      </span>
+      <span>
         BTC has grow from {formatMoney(prices.firstPriceData.price)} to {formatMoney(prices.lastPriceData.price)} USD
-        since {formatDate(prices.firstPriceData.date)} to {formatDate(prices.lastPriceData.date)}
       </span>
       <span>
         That's a {formatPercentage(increase(prices))}% increase
       </span>
       <span>
-        Equivalent to a {formatPercentage(getAnnualIncrease(prices))}% annual increase
+        Equal to a {formatPercentage(getAnnualIncrease(prices))}% yearly increase
       </span>
       <span>
-        Equivalent to a {formatPercentage(getMonthlyIncrease(prices))}% monthly increase
+        Equal to a {formatPercentage(getMonthlyIncrease(prices))}% monthly increase
       </span>
     </Container>
   );

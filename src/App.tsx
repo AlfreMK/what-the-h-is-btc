@@ -11,8 +11,9 @@ function App() {
   return (
     <Container>
       <Title>
+        <h2>What the h#@! is </h2>
         <BTCLogo />
-        <h2>Bitcoin grow since...</h2>
+        <h2>Bitcoin?</h2>
       </Title>
       <Price />
       <BTCChart />
@@ -34,11 +35,12 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  margin: 20px 0;
+  margin: 50px 0;
   h2 {
-    margin-left: 10px;
+    font-size: 1.5rem;
+    margin: 0 10px;
   }
 `;
