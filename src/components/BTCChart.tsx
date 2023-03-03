@@ -37,8 +37,10 @@ const BTCChart = () => {
         <p>Click and drag on the chart to zoom in</p>
         <ZoomChart initialData={priceData} />
       </ContainerChart>
-      <span>BTC has grow from {formatMoney(prices.first)} to {formatMoney(prices.last)}</span>
+      <span>BTC has grow from {formatMoney(prices.first)} to {formatMoney(prices.last)} USD</span>
       <span>That's a {formatPercentage(increase(prices))}% increase</span>
+      <span>Equivalent to a XX anual increase</span>
+      <span>Equivalent to a XX monthly increase</span>
     </Container>
   );
 };
