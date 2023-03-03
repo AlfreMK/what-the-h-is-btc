@@ -49,10 +49,10 @@ const BTCChart = () => {
         That's a {formatPercentage(increase(prices))}% increase
       </span>
       <span>
-        Equivalent to a XX anual increase
+        Equivalent to a {formatPercentage(getAnnualIncrease(prices))}% annual increase
       </span>
       <span>
-        Equivalent to a XX monthly increase
+        Equivalent to a {formatPercentage(getMonthlyIncrease(prices))}% monthly increase
       </span>
     </Container>
   );
@@ -65,6 +65,24 @@ function increase(prices: IPrices) {
 function formatPercentage(number: number) {
   // 10,000.00
   return number.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+function getAnnualIncrease(prices: IPrices) {
+  const days = getDaysBetweenDates(new Date(prices.firstPriceData.date), new Date(prices.lastPriceData.date));
+  const years = days / 365;
+  return increase(prices) / years;
+}
+
+function getMonthlyIncrease(prices: IPrices) {
+  const days = getDaysBetweenDates(new Date(prices.firstPriceData.date), new Date(prices.lastPriceData.date));
+  const months = days / 30;
+  return increase(prices) / months;
+}
+
+function getDaysBetweenDates(date1: Date, date2: Date) {
+  const diffTime = Math.abs(date2.getTime() - date1.getTime());
+  const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+  return diffDays;
 }
 
 export default BTCChart;
