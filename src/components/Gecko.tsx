@@ -11,7 +11,7 @@ const Gecko = () => {
 export default Gecko;
 
 const Link = styled.a`
-    color: #000;
+    color: #e3ded7;
     text-decoration: none;
     font-weight: bold;
     &:hover {
@@ -21,8 +21,9 @@ const Link = styled.a`
 
 const Container = styled.span`
     font-size: 12px;
+    color: #e3ded7;
     margin: 10px 0;
-    background-color: #ccc;
+    background-color: rgb(64, 69, 73);
     padding: 10px;
     border-radius: 5px;
 `;

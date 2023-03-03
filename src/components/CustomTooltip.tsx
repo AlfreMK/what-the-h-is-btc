@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
+import { formatMoney } from "../utils/functions";
 
 interface ICustomTooltipProps {
     active?: boolean;
@@ -10,7 +11,6 @@ interface ICustomTooltipProps {
 
 const CustomTooltip = ({ active, payload, label }: ICustomTooltipProps) => {
     const [currency, setCurrency] = useState("USD");
-    console.log("payload", payload)
     if (active && payload && payload.length) {
         return (
           <Container>
@@ -30,9 +30,6 @@ const CustomTooltip = ({ active, payload, label }: ICustomTooltipProps) => {
 export default CustomTooltip;
 
 
-function formatMoney(value: number): string {
-    return `$${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
-}
   
 function formatDate(value: string): string {
     const date = new Date(value);
@@ -41,23 +38,29 @@ function formatDate(value: string): string {
 }
 
 const Container = styled.div`
-    background-color: white;
-    border: 1px solid #ccc;
-    border-radius: 5px;
     display: flex;
     flex-direction: column;
     align-items: stretch;
     justify-content: center;
+    background-color: #1d1f20;
+    opacity: 0.9;
+    width: 120px;
 `;
 
 const DateCont = styled.div`
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
     text-align: center;
-    background-color: #ccc;
+    color: #fff;
+    font-size: 0.9rem;
+    background-color: #2563eb;
     padding: 5px 0;
 `;
 
 const PriceCont = styled.div`
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
     text-align: center;
-    width: 100px;
+    font-size: 1rem;
     padding: 10px 0px;
 `;

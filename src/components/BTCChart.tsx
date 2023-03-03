@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getDataFromBegginingOfTime } from "../utils/functions";
-import ZoomChart from "./ZoomChart"; 
+import ZoomChart from "./ZoomChart";
+import styled from "styled-components";
 
 
 interface IPriceData {
@@ -20,18 +21,28 @@ const BTCChart = () => {
   }, []);
 
   return (
-    <div>
-      {/* <LineChart width={600} height={300} data={priceData}>
-        <XAxis dataKey="year" />
-        <YAxis dataKey="price" />
-        <Tooltip content={<CustomTooltip/>} />
-        <Line type="monotone" dataKey="price" stroke="#8884d8" />
-      </LineChart> */}
+    <Container>
+      <p>Click and drag on the chart to zoom in</p>
       <ZoomChart initialData={priceData} />
-
-    </div>
+    </Container>
   );
 };
 
 
 export default BTCChart;
+
+const Container = styled.div`
+  background-color: rgb(25 27 29);
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+  margin: 20px 0;
+  padding: 20px;
+  border-radius: 10px;
+`;
+

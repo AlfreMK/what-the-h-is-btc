@@ -5,6 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #e3ded7;
+  background-color: #1d1f20;
 }
 
 code {
@@ -16,3 +18,12 @@ code {
 .recharts-brush-texts {
   font-size: 0.7em;
 }
+
+.bg-yellow {
+  background-color: #f7931a;
+}
+
+.color-yellow {
+  color: #f7931a;
+}
+

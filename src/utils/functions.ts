@@ -28,6 +28,10 @@ const fillZero = (number: number): string => {
 }
 
 
+function formatMoney(value: number): string {
+    return `$${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
+}
+
 async function getDataFromBegginingOfTime(): Promise<IPriceData[]> {
     // powered by coingecko
     const url = `https://api.coingecko.com/api/v3/coins/bitcoin/market_chart?vs_currency=usd&days=max&interval=weekly`;
@@ -45,8 +49,21 @@ async function getDataFromBegginingOfTime(): Promise<IPriceData[]> {
         return [];
 }
 
+async function getPrice(): Promise<number> {
+    const url = `https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd`;
+    try{
+        const response = await fetch(url);
+        const data = await response.json();
+        return data.bitcoin.usd;
+        }
+        catch(error){
+            console.error(error);
+        }
+        return 0;
+}
 
 export {
     getDataFromBegginingOfTime,
-
+    getPrice,
+    formatMoney,
 };

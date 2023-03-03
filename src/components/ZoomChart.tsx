@@ -1,4 +1,5 @@
 import { Component } from "react";
+import styled from "styled-components";
 import {
   LineChart,
   Line,
@@ -6,7 +7,8 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  ReferenceArea
+  ReferenceArea,
+  ResponsiveContainer,
 } from "recharts";
 import CustomTooltip from "./CustomTooltip";
 
@@ -129,18 +131,10 @@ export default class App extends Component<any, any> {
 
 
     return (
-      <div className="highlight-bar-charts" style={{ userSelect: "none" }}>
-        <button
-          type="button"
-          className="btn update"
-          onClick={this.zoomOut.bind(this)}
-        >
-          Zoom Out
-        </button>
-
+      <Container>
+        
+        <ResponsiveContainer width={"100%"} height={300}>
         <LineChart
-          width={800}
-          height={400}
           data={data}
           onMouseDown={(e: any) =>
             this.setState({ refAreaLeft: e.activeLabel })
@@ -152,13 +146,14 @@ export default class App extends Component<any, any> {
           // eslint-disable-next-line react/jsx-no-bind
           onMouseUp={this.zoom.bind(this)}
         >
-          <CartesianGrid strokeDasharray="3 3" />
+          <CartesianGrid strokeDasharray="3 3" stroke="#525252" />
           <XAxis
             allowDataOverflow
             dataKey="index"
             domain={[left, right]}
             type="number"
             tickFormatter={(value: any, index: number) => formatXAxis(value, data)}
+            stroke="#c2c2c2"
           />
           <YAxis
             allowDataOverflow
@@ -166,6 +161,7 @@ export default class App extends Component<any, any> {
             type="number"
             yAxisId="1"
             tickFormatter={formatYAxis}
+            stroke="#c2c2c2"
           />
           <YAxis
             orientation="right"
@@ -179,7 +175,7 @@ export default class App extends Component<any, any> {
             yAxisId="1"
             type="natural"
             dataKey="price"
-            stroke="#8884d8"
+            stroke="#818cf8"
             animationDuration={300}
             dot={false}
           />
@@ -193,12 +189,22 @@ export default class App extends Component<any, any> {
             />
           ) : null}
         </LineChart>
-      </div>
+        </ResponsiveContainer>
+        <Button
+          onClick={this.zoomOut.bind(this)}
+        >
+          Zoom Out
+        </Button>
+      </Container>
     );
   }
 }
 
 function formatYAxis(value: number, index: number): string {
+  // when surpass 1000 use K for thousands
+  if (value >= 1000) {
+    return `$${(value / 1000).toFixed(1)}K`;
+  }
   return `$${value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`
 }
 
@@ -210,3 +216,32 @@ function formatXAxis(value: any, data: any): string {
     return '';
   }
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  width: 100%;
+`;
+
+const Button = styled.button`
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+  background: transparent;
+  border: 1px solid #455EB5;
+  color: #e3ded7;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  &:hover {
+    background: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
+    box-shadow: rgba(80, 63, 205, 0.5) 0 1px 10px;
+  }
+`;
+
+
+
+
