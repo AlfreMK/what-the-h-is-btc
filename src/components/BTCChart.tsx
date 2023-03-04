@@ -107,6 +107,7 @@ const ContainerChart = styled.div`
   box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
   @media (max-width: 768px) {
     width: 100%;
+    padding: 20px 0px;
   }
   margin: 20px 0;
   padding: 20px;

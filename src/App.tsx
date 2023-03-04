@@ -26,6 +26,7 @@ function App() {
         <BTCLogo />
         <h2>Bitcoin?</h2>
       </Title>
+      <Price />
       <CardContext.Provider value={{ cardActive, setCardActive }}>
         <Cards>
         {text_data.map((data, index) => {
@@ -34,7 +35,7 @@ function App() {
         }
         </Cards>
       </CardContext.Provider>
-      <Price />
+      <h2> Let's jump into statistics </h2>
       <BTCChart />
       <Gecko />
       <Footer />
