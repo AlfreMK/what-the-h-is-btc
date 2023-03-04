@@ -64,7 +64,8 @@ export default class App extends Component<any, any> {
     let { refAreaLeft, refAreaRight } = this.state;
     const { data } = this.state;
 
-    if (refAreaLeft === refAreaRight || refAreaRight === "") {
+    if (refAreaLeft === refAreaRight || refAreaRight === "" || refAreaLeft === ""
+        || refAreaLeft === undefined || refAreaRight === undefined) {
       this.setState(() => ({
         refAreaLeft: "",
         refAreaRight: ""
@@ -76,6 +77,7 @@ export default class App extends Component<any, any> {
     if (refAreaLeft > refAreaRight)
       [refAreaLeft, refAreaRight] = [refAreaRight, refAreaLeft];
 
+    
     // yAxis domain
     const [bottom, top] = getAxisYDomain(
       data,
@@ -151,13 +153,15 @@ export default class App extends Component<any, any> {
         <ResponsiveContainer width={"100%"} height={300}>
         <LineChart
           data={data}
-          onMouseDown={(e: any) =>
-            this.setState({ refAreaLeft: e.activeLabel })
-          }
-          onMouseMove={(e: any) =>
+          onMouseDown={(e: any) =>{
+            if (e){
+              this.setState({ refAreaLeft: e.activeLabel });
+            }
+          }}
+          onMouseMove={(e: any) => {
             this.state.refAreaLeft &&
-            this.setState({ refAreaRight: e.activeLabel })
-          }
+            this.setState({ refAreaRight: e.activeLabel });
+          }}
           // eslint-disable-next-line react/jsx-no-bind
           onMouseUp={this.zoom.bind(this)}
         >

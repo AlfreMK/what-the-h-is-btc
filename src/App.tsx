@@ -1,4 +1,4 @@
-import { useState, createContext } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import './App.css';
 import BTCChart from './components/BTCChart';
