@@ -11,8 +11,8 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import CustomTooltip from "./CustomTooltip";
-
-
+import { PricesContext } from "../utils/contexts";
+import { IPricesContext } from "../utils/interfaces";
 
 const getAxisYDomain = (
   initialData: any[],
@@ -50,6 +50,9 @@ export default class App extends Component<any, any> {
     super(props);
     this.state = initialState(props.initialData);
   }
+
+  static contextType = PricesContext;
+  context!: IPricesContext;
 
   componentDidUpdate(prevProps: Readonly<any>, prevState: Readonly<any>, snapshot?: any): void {
     if (prevProps.initialData !== this.props.initialData) {
@@ -99,6 +102,12 @@ export default class App extends Component<any, any> {
       bottom2,
       top2
     }));
+    this.context.setPrices(
+      {
+        firstPriceData: data[refAreaLeft],
+        lastPriceData: data[refAreaRight]
+      }
+    );
   }
 
   zoomOut() {
@@ -114,6 +123,12 @@ export default class App extends Component<any, any> {
       top2: "dataMax+50",
       bottom2: "dataMin+50"
     }));
+    this.context.setPrices(
+      {
+        firstPriceData: data[0],
+        lastPriceData: data[data.length - 1]
+      }
+    )
   }
 
   render() {

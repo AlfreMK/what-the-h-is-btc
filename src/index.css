@@ -27,3 +27,23 @@ code {
   color: #f7931a;
 }
 
+.card-active {
+  height: auto;
+  padding: 20px 0;
+  overflow: hidden;
+  justify-content: space-around;
+}
+.card-inactive {
+  height: 0px;
+  padding: 0px;
+  overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+  .card-active {
+    height: 210px;
+    overflow-y: scroll;
+    justify-content: normal;
+  }
+}
+  

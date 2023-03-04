@@ -8,14 +8,8 @@ import Price from './components/Price';
 import Footer from './components/Footer';
 import InfoCard from './components/InfoCard';
 import text_data from './utils/text_data.json';
+import { CardContext } from './utils/contexts';
 
-interface ICardContext {
-  cardActive: number|undefined;
-  setCardActive: (value: number|undefined) => void;
-}
-
-
-const CardContext = createContext({} as ICardContext);
 
 function App() {
   const [cardActive, setCardActive] = useState<number|undefined>(undefined);

@@ -1,11 +1,6 @@
 import styled from "styled-components"
 import { useContext } from "react";
-
-
-interface ICardContext {
-    cardActive: number|undefined;
-    setCardActive: (value: number|undefined) => void;
-}
+import { ICardContext } from "../utils/interfaces";
 
 const InfoCard = (props: any) => {
     const { data, context, index } = props;
@@ -23,7 +18,7 @@ const InfoCard = (props: any) => {
             <Title onClick={() => updateCardActive(index)}>
                 {data.title}
             </Title>
-            <Description style={{ display: cardActive === index ? "flex" : "none" }}>
+            <Description className={cardActive === index ? "card-active" : "card-inactive"}>
                 {data.description.map((text: string, index: number) => {
                     return <Text key={index}>{text}</Text>
                 })}
@@ -40,7 +35,7 @@ const Card = styled.div`
     align-items: center;
     justify-content: center;
     width: 80%;
-    background-color: #1d1f20;
+    background-color: #2c3033;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
     @media (max-width: 768px) {
         width: 100%;
@@ -49,6 +44,7 @@ const Card = styled.div`
 
 const Title = styled.div`
     display: flex;
+    font-size: 17px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -57,7 +53,7 @@ const Title = styled.div`
     cursor: pointer;
     background-color: rgb(25 27 29);
     user-select: none;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.5s ease-in-out;
     &:hover {
         background-color: #232629;
     }
@@ -67,16 +63,18 @@ const Title = styled.div`
 `;
 
 const Description = styled.div`
+    display: flex;
     flex-direction: column;
+    align-items: center;
     width: 80%;
-    padding: 20px 0;
+    transition: all 0.2s ease-in-out;
     @media (max-width: 768px) {
         width: 95%;
     }
 `;
 
 const Text = styled.p`
-    font-size: 14px;
+    font-size: 15px;
     margin: 5px 0;
     text-align: justify;
 `;

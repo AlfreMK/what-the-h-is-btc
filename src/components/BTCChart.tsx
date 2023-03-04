@@ -3,19 +3,9 @@ import { getDataFromBegginingOfTime } from "../utils/functions";
 import ZoomChart from "./ZoomChart";
 import styled from "styled-components";
 import { formatMoney, formatDate } from "../utils/functions";
+import { IPriceData, IPrices } from "../utils/interfaces";
+import { PricesContext } from "../utils/contexts";
 
-
-interface IPriceData {
-  index: number;
-  year: number;
-  date: string;
-  price: number;
-}
-
-interface IPrices {
-  firstPriceData: IPriceData;
-  lastPriceData: IPriceData;
-}
 
 const BTCChart = () => {
   const defaultPriceData = { index: 0, year: 0, date: "", price: 0 };
@@ -39,7 +29,9 @@ const BTCChart = () => {
     <Container>
       <ContainerChart>
         <p>Click and drag on the chart to zoom in</p>
-        <ZoomChart initialData={priceData} />
+        <PricesContext.Provider value={{prices, setPrices}}>
+          <ZoomChart initialData={priceData} />
+        </PricesContext.Provider>
       </ContainerChart>
       <span>
         Since {formatDate(prices.firstPriceData.date)} to {formatDate(prices.lastPriceData.date)}
