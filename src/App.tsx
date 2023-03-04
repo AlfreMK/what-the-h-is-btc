@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, createContext } from 'react';
 import styled from 'styled-components';
 import './App.css';
 import BTCChart from './components/BTCChart';
@@ -6,8 +6,19 @@ import Gecko from './components/Gecko';
 import BTCLogo from './components/BTCLogo';
 import Price from './components/Price';
 import Footer from './components/Footer';
+import InfoCard from './components/InfoCard';
+import text_data from './utils/text_data.json';
+
+interface ICardContext {
+  cardActive: number|undefined;
+  setCardActive: (value: number|undefined) => void;
+}
+
+
+const CardContext = createContext({} as ICardContext);
 
 function App() {
+  const [cardActive, setCardActive] = useState<number|undefined>(undefined);
   return (
     <Container>
       <Title>
@@ -15,6 +26,14 @@ function App() {
         <BTCLogo />
         <h2>Bitcoin?</h2>
       </Title>
+      <CardContext.Provider value={{ cardActive, setCardActive }}>
+        <Cards>
+        {text_data.map((data, index) => {
+          return <InfoCard key={index} index={index} data={data} context={CardContext} />;
+          })
+        }
+        </Cards>
+      </CardContext.Provider>
       <Price />
       <BTCChart />
       <Gecko />
@@ -26,6 +45,14 @@ function App() {
 }
 
 export default App;
+
+const Cards = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`;
 
 const Container = styled.div`
   display: flex;
