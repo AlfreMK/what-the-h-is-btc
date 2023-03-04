@@ -2,51 +2,36 @@
     {
         "title": "But seriously, what the h!@# is Bitcoin?",
         "description": [
-            "Bitcoin is a decentralized digital currency that operates on a peer-to-peer network known as the Bitcoin network.",
-            "It is not controlled by any central authority or government, and its transactions are verified and recorded on a public ledger known as the blockchain."
+            "Bitcoin is a decentralized digital currency that operates on a peer-to-peer network known as the Bitcoin network. It is not controlled by any central authority or government, and its transactions are verified and recorded on a public ledger known as the blockchain.",
+            "Bitcoin was created in 2009 by an anonymous individual or group of individuals under the pseudonym Satoshi Nakamoto. It was designed to provide a decentralized alternative to traditional currency and to allow for fast, low-cost transactions without the need for intermediaries such as banks."
                         ]
     },
     {
         "title": "How does it work?",
         "description": [
-            "Bitcoin is based on a cryptographic algorithm that ensures the security and integrity of transactions.",
-            "It uses a public key and a private key to verify and authorize transactions on the network.",
-            "Bitcoin transactions are irreversible once they have been confirmed by the network,",
-            "making it virtually impossible to reverse or alter transactions.",
-            "One of the unique features of Bitcoin is its limited supply.",
-            "The total number of bitcoins that can ever be created is limited to 21 million,",
-            "which helps to prevent inflation and maintain the value of the currency."
+            "Bitcoin is based on a cryptographic algorithm that ensures the security and integrity of transactions. It uses a public key and a private key to verify and authorize transactions on the network. Bitcoin transactions are irreversible once they have been confirmed by the network, making it virtually impossible to reverse or alter transactions.",
+            "One of the unique features of Bitcoin is its limited supply. The total number of bitcoins that can ever be created is limited to 21 million, which helps to prevent inflation and maintain the value of the currency."
             ]
     },
     {
         "title": "What is Blockchain?",
         "description": [
-            "The Bitcoin blockchain is a decentralized, public ledger that records all Bitcoin transactions.",
-            "It is essentially a digital database that contains a complete and tamper-proof record of every transaction that has ever occurred on the Bitcoin network.",
-            "Each block in the blockchain contains a record of several recent transactions and a reference to the previous block,",
-            "forming a chain of blocks that goes all the way back to the very first Bitcoin transaction. This is why it is called a 'blockchain.'",
-            "The blockchain is maintained by a network of nodes, which are computers that run Bitcoin software and store a copy of the blockchain.",
-            "Every node has a complete and identical copy of the blockchain, and any new transaction that occurs on the network is broadcasted to all nodes."
+            "The Bitcoin blockchain is a decentralized, public ledger that records all Bitcoin transactions. It is essentially a digital database that contains a complete and tamper-proof record of every transaction that has ever occurred on the Bitcoin network.",
+            "Each block in the blockchain contains a record of several recent transactions and a reference to the previous block, forming a chain of blocks that goes all the way back to the very first Bitcoin transaction. This is why it is called a 'blockchain.'",
+            "The blockchain is maintained by a network of nodes, which are computers that run Bitcoin software and store a copy of the blockchain. Every node has a complete and identical copy of the blockchain, and any new transaction that occurs on the network is broadcasted to all nodes."
         ]
     },
     {
         "title": "What is Bitcoin mining?",
         "description": [
-            "Is the process by which new bitcoins are created and transactions are verified on the Bitcoin network.",
-            "It involves solving complex mathematical problems using specialized hardware and software to validate and process transactions.",
-            "Miners are incentivized to participate in the mining process with new bitcoins and transaction fees.",
-            "When a miner successfully solves a mathematical problem, they add a new block to the blockchain."
+            "Is the process by which new bitcoins are created and transactions are verified on the Bitcoin network. It involves solving complex mathematical problems using specialized hardware and software to validate and process transactions. Miners are incentivized to participate in the mining process with new bitcoins and transaction fees. When a miner successfully solves a mathematical problem, they add a new block to the blockchain."
         ]
     },
     {
         "title": "How hard is it to mine a Bitcoin?",
         "description": [
-            "The process of Bitcoin mining requires significant (and expensive) computing power,",
-            "which is why specialized hardware known as Application-Specific Integrated Circuits (ASICs)",
-            "are commonly used by miners. The difficulty of mining bitcoins increases over time as more miners join the network,",
-            "making it more challenging and resource-intensive.",
-            "Bitcoin mining plays a crucial role in maintaining the security and integrity of the Bitcoin network by ensuring that transactions are valid and irreversible.",
-            "Without miners, it would be impossible to confirm transactions and maintain the blockchain."
+            "The process of Bitcoin mining requires significant (and expensive) computing power, which is why specialized hardware known as Application-Specific Integrated Circuits (ASICs) are commonly used by miners. The difficulty of mining bitcoins increases over time as more miners join the network, making it more challenging and resource-intensive.",
+            "Bitcoin mining plays a crucial role in maintaining the security and integrity of the Bitcoin network by ensuring that transactions are valid and irreversible. Without miners, it would be impossible to confirm transactions and maintain the blockchain."
         ]
     }
 ]
