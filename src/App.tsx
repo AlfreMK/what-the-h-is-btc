@@ -28,9 +28,9 @@ function App() {
         }
         </Cards>
       </CardContext.Provider>
-      <h2 style={{margin: "30px 0"}}>
+      <StatisticsTitle>
         Let's jump into statistics
-      </h2>
+      </StatisticsTitle>
       <BTCChart />
       <Footer />
 
@@ -66,4 +66,9 @@ const Title = styled.div`
     font-size: 2.1rem;
     margin: 0 10px;
   }
+`;
+
+const StatisticsTitle = styled.h2`
+  font-size: 1.8rem;
+  margin: 30px 0;
 `;

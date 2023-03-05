@@ -138,6 +138,8 @@ const ContainerChart = styled.div`
   @media (max-width: 768px) {
     width: 100%;
     padding: 20px 0px;
+    border-radius: 0px;
+    font-size: 0.9rem;
   }
   margin: 20px 0;
   padding: 20px;
@@ -153,7 +155,7 @@ const TextAnim = styled.span`
   justify-content: center;
   align-items: center;
   @media (max-width: 768px) {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
   }
 `;
 
@@ -168,6 +170,6 @@ const Highlight = styled.span`
   border-radius: 10px;
   box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
   @media (max-width: 768px) {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
 `;

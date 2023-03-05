@@ -248,7 +248,7 @@ const Container = styled.div`
 const Button = styled.button`
   margin: 10px;
   padding: 10px;
-  border-radius: 15px;
+  border-radius: 12px;
   background: transparent;
   border: 1px solid #455EB5;
   color: #e3ded7;
@@ -256,8 +256,8 @@ const Button = styled.button`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   &:hover {
-    background: linear-gradient(92.88deg, #455EB5 9.16%, #5643CC 43.89%, #673FD7 64.72%);
-    box-shadow: rgba(80, 63, 205, 0.5) 0 1px 10px;
+    background: linear-gradient(92.88deg, #5643CC 43.89%, #673FD7 64.72%);
+    box-shadow: rgba(80, 63, 205, 0.5) 0 1px 5px;
   }
 `;
 

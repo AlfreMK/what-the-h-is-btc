@@ -41,6 +41,7 @@ const Card = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 2px 0px;
     width: 80%;
     background-color: #2c3033;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
