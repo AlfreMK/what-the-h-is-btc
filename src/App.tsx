@@ -2,7 +2,6 @@ import { useState } from 'react';
 import styled from 'styled-components';
 import './App.css';
 import BTCChart from './components/BTCChart';
-import Gecko from './components/Gecko';
 import BTCLogo from './components/BTCLogo';
 import Price from './components/Price';
 import Footer from './components/Footer';
@@ -33,7 +32,6 @@ function App() {
         Let's jump into statistics
       </h2>
       <BTCChart />
-      <Gecko />
       <Footer />
 
       

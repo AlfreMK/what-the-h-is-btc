@@ -22,7 +22,7 @@ const Link = styled.a`
 const Container = styled.span`
     font-size: 12px;
     color: #e3ded7;
-    margin: 10px 0;
+    margin: 10px;
     background-color: rgb(64, 69, 73);
     padding: 10px;
     border-radius: 5px;
