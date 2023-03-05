@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { useContext } from "react";
 import { ICardContext } from "../utils/interfaces";
+import AnimateHeight from 'react-animate-height';
 
 const InfoCard = (props: any) => {
     const { data, context, index } = props;
@@ -18,13 +19,17 @@ const InfoCard = (props: any) => {
             <Title onClick={() => updateCardActive(index)}>
                 {data.title}
             </Title>
-            <Description className={cardActive === index ? "card-active" : "card-inactive"}>
-                <div style={{margin: "20px 0"}}>
-                    {data.description.map((text: string, index: number) => {
-                        return <Text key={index}>{text}</Text>
-                    })}
-                </div>
-            </Description>
+            <AnimateHeight height={
+                cardActive === index ? "auto" : 0
+                }>
+                <Description>
+                    <div style={{margin: "20px 0"}}>
+                        {data.description.map((text: string, index: number) => {
+                            return <Text key={index}>{text}</Text>
+                        })}
+                    </div>
+                </Description>
+            </AnimateHeight>
         </Card>
     )
 };
@@ -68,11 +73,9 @@ const Description = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 80%;
+    justify-content: center;
+    margin: 10px;
     transition: all 0.2s ease-in-out;
-    @media (max-width: 768px) {
-        width: 95%;
-    }
 `;
 
 const Text = styled.p`

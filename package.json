@@ -12,6 +12,7 @@
     "@types/react-dom": "^18.0.11",
     "@types/styled-components": "^5.1.26",
     "react": "^18.2.0",
+    "react-animate-height": "^3.1.1",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "recharts": "^2.4.3",

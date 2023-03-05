@@ -49,16 +49,6 @@ code {
   }
 }
 
-.card-active {
-  height: auto;
-  overflow: hidden;
-  justify-content: space-around;
-}
-.card-inactive {
-  height: 0px;
-  overflow: hidden;
-}
-
 .animation-left {
   animation: fadeLeft 1s ease-in-out;
 }
@@ -79,13 +69,3 @@ code {
   transform: none;
   visibility: visible;
 }
-
-
-@media screen and (max-width: 768px) {
-  .card-active {
-    height: 210px;
-    overflow-y: scroll;
-    justify-content: normal;
-  }
-}
-  
