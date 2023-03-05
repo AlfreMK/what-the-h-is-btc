@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/what-the-h-is-btc/static/css/main.3489d140.css",
+    "main.js": "/what-the-h-is-btc/static/js/main.fd220def.js",
+    "static/js/787.25749a4f.chunk.js": "/what-the-h-is-btc/static/js/787.25749a4f.chunk.js",
+    "index.html": "/what-the-h-is-btc/index.html",
+    "main.3489d140.css.map": "/what-the-h-is-btc/static/css/main.3489d140.css.map",
+    "main.fd220def.js.map": "/what-the-h-is-btc/static/js/main.fd220def.js.map",
+    "787.25749a4f.chunk.js.map": "/what-the-h-is-btc/static/js/787.25749a4f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.3489d140.css",
+    "static/js/main.fd220def.js"
+  ]
+}
