@@ -5,6 +5,7 @@ import styled from "styled-components";
 import { formatMoney, formatDate } from "../utils/functions";
 import { IPriceData, IPrices } from "../utils/interfaces";
 import { PricesContext } from "../utils/contexts";
+import FadeInSection from "./FadeInSection";
 
 
 const BTCChart = () => {
@@ -33,21 +34,58 @@ const BTCChart = () => {
           <ZoomChart initialData={priceData} />
         </PricesContext.Provider>
       </ContainerChart>
-      <span>
-        Since {formatDate(prices.firstPriceData.date)} to {formatDate(prices.lastPriceData.date)}
-      </span>
-      <span>
-        BTC has grow from {formatMoney(prices.firstPriceData.price)} to {formatMoney(prices.lastPriceData.price)} USD
-      </span>
-      <span>
-        That's a {formatPercentage(increase(prices))}% increase
-      </span>
-      <span>
-        Equal to a {formatPercentage(getAnnualIncrease(prices))}% yearly increase
-      </span>
-      <span>
-        Equal to a {formatPercentage(getMonthlyIncrease(prices))}% monthly increase
-      </span>
+      <FadeInSection>
+        <TextAnim>
+          Since 
+          <Highlight>
+            {formatDate(prices.firstPriceData.date)}
+          </Highlight>
+          to 
+          <Highlight>
+            {formatDate(prices.lastPriceData.date)}
+          </Highlight>
+        </TextAnim>
+      </FadeInSection>
+      <FadeInSection>
+        <TextAnim>
+          Has gone from
+          <Highlight>
+            {formatMoney(prices.firstPriceData.price)}
+          </Highlight>
+          to 
+          <Highlight>
+            {formatMoney(prices.lastPriceData.price)}
+          </Highlight>
+          USD
+        </TextAnim>
+      </FadeInSection>
+      <FadeInSection>
+        <TextAnim>
+          A
+          <Highlight>
+            {formatPercentage(increase(prices))}%
+          </Highlight>
+          change
+        </TextAnim>
+      </FadeInSection>
+      <FadeInSection>
+        <TextAnim>
+          =
+          <Highlight>
+            {formatPercentage(getAnnualIncrease(prices))}%
+          </Highlight>
+          yearly
+        </TextAnim>
+      </FadeInSection>
+      <FadeInSection>
+        <TextAnim>
+          =
+          <Highlight>
+            {formatPercentage(getMonthlyIncrease(prices))}%
+          </Highlight>
+          monthly
+        </TextAnim>
+      </FadeInSection>
     </Container>
   );
 };
@@ -106,3 +144,30 @@ const ContainerChart = styled.div`
   border-radius: 10px;
 `;
 
+const TextAnim = styled.span`
+  font-size: 1.7rem;
+  color: #fff;
+  margin: 15px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  @media (max-width: 768px) {
+    font-size: 1.4rem;
+  }
+`;
+
+const Highlight = styled.span`
+  font-family: "Roboto Mono", monospace;
+  color: rgb(129 140 248);
+  margin: 0 5px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  background-color: rgb(25 27 29);
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: inset 0 2px 4px 0 rgb(0 0 0 / 0.05);
+  @media (max-width: 768px) {
+    font-size: 1.5rem;
+  }
+`;

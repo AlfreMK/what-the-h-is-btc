@@ -29,7 +29,9 @@ function App() {
         }
         </Cards>
       </CardContext.Provider>
-      <h2> Let's jump into statistics </h2>
+      <h2 style={{margin: "30px 0"}}>
+        Let's jump into statistics
+      </h2>
       <BTCChart />
       <Gecko />
       <Footer />
@@ -60,9 +62,10 @@ const Title = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
   margin: 50px 0;
   h2 {
-    font-size: 1.5rem;
+    font-size: 2.1rem;
     margin: 0 10px;
   }
 `;

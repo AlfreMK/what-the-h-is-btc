@@ -19,9 +19,11 @@ const InfoCard = (props: any) => {
                 {data.title}
             </Title>
             <Description className={cardActive === index ? "card-active" : "card-inactive"}>
-                {data.description.map((text: string, index: number) => {
-                    return <Text key={index}>{text}</Text>
-                })}
+                <div style={{margin: "20px 0"}}>
+                    {data.description.map((text: string, index: number) => {
+                        return <Text key={index}>{text}</Text>
+                    })}
+                </div>
             </Description>
         </Card>
     )

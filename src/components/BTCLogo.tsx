@@ -11,11 +11,11 @@ const BTCLogo = (props: any) => {
 export default BTCLogo;
 
 const Container = styled.span`
-    font-size: 25px;
+    font-size: 27px;
     color: #e3ded7;
     background-color: #f7931a;
     border-radius: 50%;
-    height: 40px;
+    height: 45px;
     aspect-ratio: auto 1/1;
     display: flex;
     align-items: center;
